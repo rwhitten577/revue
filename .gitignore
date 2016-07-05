@@ -14,3 +14,6 @@
 
 # Ignore coverage reports
 /coverage
+
+# Ignore .env
+.env
