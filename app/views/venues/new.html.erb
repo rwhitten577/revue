@@ -1,0 +1,53 @@
+<div class="row">
+  <h3 class="title">Add New Venue</h3>
+</div>
+
+<div class="row">
+  <%= form_for @venue do |f| %>
+    <div class="row">
+      <%= f.label :name, 'Venue Name' %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="row street">
+      <%= f.label :street, 'Street' %>
+      <%= f.text_field :street %>
+    </div>
+    <div class="row city">
+      <%= f.label :city, 'City' %>
+      <%= f.text_field :city %>
+    </div>
+    <div class="row state">
+      <%= f.label :state, 'State' %>
+      <%= f.select :state, options_for_select(us_states),:name=>"state",:id=>"state"%>
+    </div>
+    <div class="row website">
+      <%= f.label :website, 'Venue Website' %>
+      <%= f.text_field :website %>
+    </div>
+    <div class="category">
+      <%= f.label :category, 'Venue Category' %>
+      <%= f.radio_button(:category, "Music") %>
+      <%= label_tag(:category, "Music") %>
+      <%= f.radio_button(:category, "Comedy") %>
+      <%= label_tag(:category, "Comedy") %>
+      <%= f.radio_button(:category, "Poetry") %>
+      <%= label_tag(:category, "Poetry") %>
+      <%= f.radio_button(:category, "Theater") %>
+      <%= label_tag(:category, "Theater") %>
+    </div>
+    <div class="row description">
+      <%= f.label :description, 'Description' %>
+      <%= f.text_area :description, size: "50x5" %>
+    </div>
+      <% if @venue.errors.any? %>
+          <div class="error_explanation">
+            <ul>
+            <% @venue.errors.full_messages.each do |msg| %>
+              <li>*<%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+      <% end %>
+    <%= f.submit "Add Venue", :class => 'button' %>
+  <% end %>
+</div>

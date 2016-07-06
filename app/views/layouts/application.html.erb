@@ -8,6 +8,14 @@
 </head>
 <body>
 
+  <% if !flash[:notice].nil? %>
+    <div class="flash">
+      <div class="flash-container">
+        <%= flash[:notice] %>
+      </div>
+    </div>
+  <% end %>
+
 <%= yield %>
 
 </body>
