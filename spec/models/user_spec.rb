@@ -1,8 +1,9 @@
 require 'rails_helper'
 RSpec.describe User, type: :model do
+  let(:user) do
+    User.new(username: 'xxxxx', email: 'flvbliv', encrypted_password: 'jfoeiej')
+  end
 
-  let(:user) { User.new(username: 'xxxxx', email: 'flvbliv',
-    encrypted_password: 'jfoeiej') }
   it { is_expected.to have_valid(:username).when('boringusername') }
   it { is_expected.to_not have_valid(:username).when(nil, '') }
   it { expect(user).to validate_uniqueness_of(:username) }
