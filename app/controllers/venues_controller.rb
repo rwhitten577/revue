@@ -8,7 +8,7 @@ class VenuesController < ApplicationController
   end
 
   def show
-    @venue = set_venue
+    @venue = Venue.find(params[:id])
   end
 
   def new
@@ -23,15 +23,12 @@ class VenuesController < ApplicationController
       redirect_to @venue
     else
       flash[:notice] = "There were problems saving your venue."
+      flash[:errors] = @venue.errors.full_messages.join(", ")
       render :new
     end
   end
 
   private
-
-    def set_venue
-      @venue = Venue.find(params[:id])
-    end
 
     def venue_params
       params.require(:venue).permit(:name, :street, :city, :state, :website, :category, :description)
