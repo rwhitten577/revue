@@ -18,7 +18,7 @@
     </div>
     <div class="row state">
       <%= f.label :state, 'State' %>
-      <%= f.select :state, options_for_select(us_states),:name=>"state",:id=>"state"%>
+      <%= f.select :state, options_for_select(StatesHelper::US_STATES),:name=>"state",:id=>"state"%>
     </div>
     <div class="row website">
       <%= f.label :website, 'Venue Website' %>
