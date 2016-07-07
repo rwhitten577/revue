@@ -3,14 +3,9 @@ require 'rails_helper'
 feature 'user deletes venue' do
   let!(:venue) { FactoryGirl.create(:venue) }
   let!(:another_venue)  { FactoryGirl.create(:venue) }
-  let(:user) { FactoryGirl.create(:user) }
 
   scenario 'authenticated user deletes venue from show page' do
-    visit venues_path
-    click_link 'Sign In'
-    fill_in 'Login', with: user[:email]
-    fill_in 'Password', with: 'password'
-    click_button 'Log in'
+    sign_in
 
     visit venue_path(venue)
     click_link('Delete Venue')

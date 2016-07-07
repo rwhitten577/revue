@@ -3,15 +3,10 @@ require 'rails_helper'
 feature 'user edits venue' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:new_venue)  { FactoryGirl.attributes_for(:venue) }
-  let(:user) { FactoryGirl.create(:user) }
 
   before do |example|
     unless example.metadata[:skip_before]
-      visit venues_path
-      click_link 'Sign In'
-      fill_in 'Login', with: user[:email]
-      fill_in 'Password', with: 'password'
-      click_button 'Log in'
+      sign_in
     end
   end
 
