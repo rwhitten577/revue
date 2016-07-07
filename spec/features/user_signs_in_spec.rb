@@ -3,6 +3,7 @@ require "rails_helper"
 feature "user creates account" do
   let(:user) { FactoryGirl.create(:user) }
   let(:another_user) { FactoryGirl.attributes_for(:user) }
+  let!(:venue) { FactoryGirl.create(:venue) }
 
   scenario "user sees sign in form" do
     visit venues_path
@@ -22,10 +23,14 @@ feature "user creates account" do
     click_link "Sign In"
     fill_in "Login", with: user[:email]
     fill_in "Password", with: "password"
-
     click_button "Log in"
 
     expect(current_path).to eq(root_path)
+
+    expect(page).to have_content("Signed in successfully")
+
+    expect(page).not_to have_link("Sign In")
+    expect(page).not_to have_link("Sign Up")
   end
 
   scenario "user inputs incorrect fields" do
