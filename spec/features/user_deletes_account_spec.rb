@@ -17,7 +17,7 @@ feature 'user edits account information' do
   scenario 'user deletes account' do
     click_button 'Cancel my account'
 
-    expect(page).to have_content('Your account has been successfully cancelled.')
+    expect(page).to have_content('Your account has been successfully cancelled')
     expect(User.all.count).to eq(1)
   end
 end
