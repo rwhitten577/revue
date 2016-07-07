@@ -5,10 +5,10 @@ feature "user edits venue" do
   let(:new_venue)  { FactoryGirl.attributes_for(:venue) }
 
   scenario "user visits edit venue form" do
-    visit venue_path(venue.id)
+    visit venue_path(venue)
     click_link "Edit Venue"
 
-    expect(current_path).to eq(edit_venue_path(venue.id))
+    expect(current_path).to eq(edit_venue_path(venue))
 
     expect(page).to have_selector("form")
 
@@ -29,7 +29,7 @@ feature "user edits venue" do
   end
 
   scenario "user inputs valid name, location, and category" do
-    visit venue_path(venue.id)
+    visit venue_path(venue)
     click_link "Edit Venue"
 
     fill_in "Venue Name", with: new_venue[:name]
@@ -41,8 +41,8 @@ feature "user edits venue" do
     fill_in "venue_description", with: new_venue[:description]
     click_button "Save Changes"
 
-    expect(current_path).to eq(venue_path(venue.id))
-    
+    expect(current_path).to eq(venue_path(venue))
+
     expect(page).to have_content("Venue successfully saved!")
     expect(page).to have_content(new_venue[:name])
     expect(page).to have_content("Comedy")
