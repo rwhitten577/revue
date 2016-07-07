@@ -13,6 +13,8 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @venue_categories = Venue::CATEGORIES
+    @submit = "Add Venue"
   end
 
   def create
@@ -22,9 +24,31 @@ class VenuesController < ApplicationController
       flash[:notice] = "Venue successfully added!"
       redirect_to @venue
     else
+      @venue_categories = Venue::CATEGORIES
       flash[:notice] = "There were problems saving your venue."
       flash[:errors] = @venue.errors.full_messages.join(", ")
       render :new
+    end
+  end
+
+  def edit
+    @venue = Venue.find(params[:id])
+    @venue_categories = Venue::CATEGORIES
+    @submit = "Save Changes"
+  end
+
+  def update
+    @venue = Venue.find(params[:id])
+    @venue_categories = Venue::CATEGORIES
+
+    if @venue.update_attributes(venue_params)
+      flash[:notice] = "Venue successfully saved!"
+      redirect_to @venue
+    else
+      @venue_categories = Venue::CATEGORIES
+      flash[:notice] = "There were problems saving your venue."
+      flash[:errors] = @venue.errors.full_messages.join(", ")
+      render :edit
     end
   end
 

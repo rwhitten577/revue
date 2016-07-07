@@ -1,7 +1,7 @@
 <h1>Venues</h1>
 <ul>
   <% @venues.each do |venue| %>
-    <li class="venue"><a href="#"><%= venue.name %></a></li>
+    <li class="venue"><a href="<%= venue_path(venue) %>"><%= venue.name %></a></li>
   <% end %>
 </ul>
 
