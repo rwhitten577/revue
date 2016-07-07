@@ -1,8 +1,27 @@
-<h1>Venues</h1>
-<ul>
-  <% @venues.each do |venue| %>
-    <li class="venue"><a href="#"><%= venue.name %></a></li>
-  <% end %>
-</ul>
+
+
+  <!-- Three -->
+    <section id="three" class="wrapper style2">
+      <div class="inner">
+        <h2>Venues</h2>
+        <div class="posts venues">
+          <ul>
+            <% @venues.each do |venue| %>
+              <section class="post venue">
+                <span class="image"><img src="http://www.tetongravity.com/images/ci-images/kickapps/PHOTO_6806949_75233_8288743_ap.jpg" alt="" /></span>
+                <div class="content">
+                  <h3><strong><%= venue.name %></strong></h3>
+                  <h3><%= venue.city %>, <%= venue.state %></h3>
+                  <p><%= venue.description %></p>
+                  <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                  </ul>
+                </div>
+              </section>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </section>
 
 <%= link_to 'Add New Venue', new_venue_path, class: "button", role: "button" %>
