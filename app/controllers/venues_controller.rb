@@ -12,8 +12,8 @@ class VenuesController < ApplicationController
     @venue_categories = Venue::CATEGORIES
     @submit = "Add Venue"
 
-    if !user_signed_in?
-      flash[:error] = "You must be signed in to add a new venue."
+    unless user_signed_in?
+      flash[:error] = 'You must be signed in to add a new venue.'
       redirect_to venues_path
     end
   end

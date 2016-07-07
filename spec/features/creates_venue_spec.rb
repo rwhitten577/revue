@@ -19,7 +19,7 @@ feature 'user creates venue' do
 
     click_link 'Add New Venue'
 
-    expect(page).to have_content("You must be signed in to add a new venue")
+    expect(page).to have_content('You must be signed in to add a new venue')
 
     expect(page).not_to have_selector('form')
   end
