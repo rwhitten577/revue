@@ -7,4 +7,7 @@ CATEGORIES = [["Music", "Music"], ["Comedy", "Comedy"], ["Poetry", "Poetry"], ["
   validates :city, presence: true
   validates :state, presence: true
   validates :category, presence: true, inclusion: { in: %w(Music Comedy Poetry Theater) }
+
+  has_many :reviews
+  belongs_to :user
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'venues#index'
-  resources :venues
+  resources :venues do
+    resources :reviews
+  end
 end
