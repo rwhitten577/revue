@@ -211,7 +211,6 @@ DEPENDENCIES
   capybara
   coveralls
   devise
-  factory_girl
   factory_girl_rails
   foundation-rails
   jquery-rails
