@@ -41,8 +41,6 @@ class ReviewsController < ApplicationController
     redirect_to venues_path
   end
 
-
-
   private
 
   def review_params
