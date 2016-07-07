@@ -1,12 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:first_name) { |n| "Dolly#{n}"}
-    sequence(:last_name) { |n| "Parton#{n}"}
     sequence(:username) { |n| "jolene#{n}"}
     sequence(:email) { |n| "dparton#{n}@gmail.com"}
-    sequence(:password) { |n| "password#{n}"}
-    avatar_url "https://avatars2.githubusercontent.com/u/174825?v=3&s=400"
-    admin true
+    sequence(:password) { |n| "password"}
   end
 
   factory :venue do
