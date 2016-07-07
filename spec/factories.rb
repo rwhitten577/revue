@@ -1,30 +1,26 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:first_name) { |n| "Dolly#{n}"}
-    sequence(:last_name) { |n| "Parton#{n}"}
-    sequence(:username) { |n| "jolene#{n}"}
-    sequence(:email) { |n| "dparton#{n}@gmail.com"}
-    sequence(:password) { |n| "password#{n}"}
-    avatar_url "https://avatars2.githubusercontent.com/u/174825?v=3&s=400"
-    admin true
+    sequence(:username) { |n| "jolene#{n}" }
+    sequence(:email) { |n| "dparton#{n}@gmail.com" }
+    password 'password'
   end
 
   factory :venue do
     sequence (:name) { |n| "Venue #{n}" }
     sequence (:street) { |n| "Street #{n}" }
-    city "Boston"
-    state "MA"
-    website "http://www.venue.com"
-    category "Music"
-    description "The greatest venue of all time"
-    avg_rating "8"
+    city 'Boston'
+    state 'MA'
+    website 'http://www.venue.com'
+    category 'Music'
+    description 'The greatest venue of all time'
+    avg_rating '8'
   end
 
   factory :review do
     association :venue
     association :user
     rating 10
-    description "Great venue!"
+    description 'Great venue!'
     upvotes 5
     downvotes 3
   end
