@@ -25,8 +25,8 @@ feature "user creates venue" do
     click_link "Add New Venue"
     fill_in "Venue Name", with: venue[:name]
     fill_in "Street", with: venue[:street]
-    fill_in"City", with: venue[:city]
-    select"Massachusetts", from: "State"
+    fill_in "City", with: venue[:city]
+    select "Massachusetts", from: "State"
     fill_in "Venue Website", with: venue[:website]
     choose "venue_category_music"
     fill_in "venue_description", with: venue[:description]
