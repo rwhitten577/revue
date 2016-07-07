@@ -17,26 +17,19 @@
       <h1><a href="index.html">Revue</a></h1>
       <nav id="nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="<%= venues_path %>">Home</a></li>
           <li>
-            <a href="#" class="submenu fa-angle-down">Page Layouts</a>
+            <% if user_signed_in? %>
+            <a href="#" class="submenu fa-angle-down">Welcome, <%= current_user.username %></a>
             <ul>
-              <li><a href="left-sidebar.html">Left Sidebar</a></li>
-              <li><a href="right-sidebar.html">Right Sidebar</a></li>
-              <li><a href="no-sidebar.html">No Sidebar</a></li>
-              <li>
-                <a href="#">Submenu</a>
-                <ul>
-                  <li><a href="#">Option One</a></li>
-                  <li><a href="#">Option Two</a></li>
-                  <li><a href="#">Option Three</a></li>
-                  <li><a href="#">Option Four</a></li>
-                </ul>
-              </li>
-            </ul>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+              </ul>
+            <% end %>
           </li>
-          <li><a href="elements.html">Elements</a></li>
-          <li><a href="#" class="button">Sign Up</a></li>
         </ul>
       </nav>
     </header>
@@ -44,29 +37,11 @@
 
     <%= yield %>
 
-<!--  -->
-<div class="container">
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value  %></div>
-  <% end %>
-</div>
-
-  <% if user_signed_in? %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <%= link_to "Edit Account", edit_user_registration_path %>
-
-  <% else %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <%= link_to "Sign In", new_user_session_path %>
-  <% end %>
-
   <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value  %></div>
-      <% end %>
-    </div>
-
-
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value  %></div>
+    <% end %>
+  </div>
 
 </body>
 </html>
