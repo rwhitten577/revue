@@ -2,9 +2,29 @@ require 'rails_helper'
 
 feature 'user creates venue' do
   let(:venue) { FactoryGirl.attributes_for(:venue) }
+  let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'user visits new venue form' do
+  before do |example|
+    unless example.metadata[:skip_before]
+      visit venues_path
+      click_link 'Sign In'
+      fill_in 'Login', with: user[:email]
+      fill_in 'Password', with: 'password'
+      click_button 'Log in'
+    end
+  end
+
+  scenario 'unauthorized user visits new venue form', :skip_before do
     visit venues_path
+
+    click_link 'Add New Venue'
+
+    expect(page).to have_content("You must be signed in to add a new venue")
+
+    expect(page).not_to have_selector('form')
+  end
+
+  scenario 'authorized user visits new venue form' do
     click_link 'Add New Venue'
 
     expect(current_path).to eq(new_venue_path)
@@ -21,7 +41,6 @@ feature 'user creates venue' do
   end
 
   scenario 'user inputs valid name, location, and category' do
-    visit venues_path
     click_link 'Add New Venue'
     fill_in 'Venue Name', with: venue[:name]
     fill_in 'Street', with: venue[:street]
@@ -38,7 +57,6 @@ feature 'user creates venue' do
   end
 
   scenario 'user does not complete required fields' do
-    visit venues_path
     click_link 'Add New Venue'
     fill_in 'Name', with: ''
     fill_in 'Street', with: ''
@@ -64,7 +82,6 @@ feature 'user creates venue' do
   end
 
   scenario 'user submits a blank form' do
-    visit venues_path
     click_link 'Add New Venue'
     click_button 'Add Venue'
 

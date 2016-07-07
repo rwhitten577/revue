@@ -3,8 +3,25 @@ require 'rails_helper'
 feature 'user edits venue' do
   let(:venue) { FactoryGirl.create(:venue) }
   let(:new_venue)  { FactoryGirl.attributes_for(:venue) }
+  let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'user visits edit venue form' do
+  before do |example|
+    unless example.metadata[:skip_before]
+      visit venues_path
+      click_link 'Sign In'
+      fill_in 'Login', with: user[:email]
+      fill_in 'Password', with: 'password'
+      click_button 'Log in'
+    end
+  end
+
+  scenario 'inauthenticated user cannot edit venue', :skip_before do
+    visit venue_path(venue)
+
+    expect(page).not_to have_link('Edit Venue')
+  end
+
+  scenario 'authenticated user visits edit venue form' do
     visit venue_path(venue)
     click_link 'Edit Venue'
 
