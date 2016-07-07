@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :venues
+  devise_for :users
+  root to: 'venues#index'
+  resources :venues do
+    resources :reviews
+  end
 end
