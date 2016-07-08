@@ -12,4 +12,13 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  def sign_in
+    user = FactoryGirl.create(:user)
+    visit venues_path
+    click_link 'Sign In'
+    fill_in 'Login', with: user[:email]
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+  end
 end

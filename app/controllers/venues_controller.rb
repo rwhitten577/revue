@@ -1,10 +1,6 @@
 class VenuesController < ApplicationController
   def index
     @venues = Venue.all.order("name ASC")
-
-    if @venues.empty?
-      flash[:notice] = "There are no venues"
-    end
   end
 
   def show
@@ -16,6 +12,11 @@ class VenuesController < ApplicationController
     @venue = Venue.new
     @venue_categories = Venue::CATEGORIES
     @submit = "Add Venue"
+
+    unless user_signed_in?
+      flash[:error] = 'You must be signed in to add a new venue.'
+      redirect_to venues_path
+    end
   end
 
   def create

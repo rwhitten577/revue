@@ -2,18 +2,46 @@
 <html>
 <head>
   <title>Revue</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <%= stylesheet_link_tag    'main', media: 'all' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'main' %>
+  <%= javascript_include_tag 'jquery.dropotron.min' %>
   <%= csrf_meta_tags %>
+  <noscript><%= stylesheet_link_tag    'noscript', media: 'all' %></noscript>
 </head>
 <body>
-  <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value  %></div>
-      <% end %>
-    </div>
+    <header id="header" class="alt">
+      <h1><a href="index.html">Revue</a></h1>
+      <nav id="nav">
+        <ul>
+          <li><a href="<%= venues_path %>">Home</a></li>
+          <li>
+            <ul>
+            <% if user_signed_in? %>
+            <a href="#" class="submenu fa-angle-down">Welcome, <%= current_user.username %></a>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+            </ul>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-<%= yield %>
+
+    <%= yield %>
+
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value  %></div>
+    <% end %>
+  </div>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 AllCops:
   Exclude:
     - db/schema.rb
+    - assets/stylesheets/noscript.scss
+    - assets/stylesheets/main.scss
   #DisplayCopNames: true
 
 AccessorMethodName:
@@ -258,6 +260,9 @@ UnderscorePrefixedVariableName:
 
 Void:
   Enabled: false
+
+scss:
+  enabled: false
 
 Style/AlignParameters:
   EnforcedStyle: with_fixed_indentation

@@ -22,7 +22,6 @@ feature 'user sees venues' do
   scenario 'user sees no venues' do
     visit venues_path
 
-    expect(page).to have_content('There are no venues')
     expect(page).not_to have_selector('.venue')
   end
 end
