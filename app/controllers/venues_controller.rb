@@ -21,7 +21,7 @@ class VenuesController < ApplicationController
 
   def create
     @venue = Venue.new(venue_params)
-
+    @venue.user = current_user
     if @venue.save
       flash[:notice] = "Venue successfully added!"
       redirect_to @venue
@@ -62,6 +62,8 @@ class VenuesController < ApplicationController
   private
 
     def venue_params
-      params.require(:venue).permit(:name, :street, :city, :state, :website, :category, :description)
+      params.require(:venue).permit(
+        :name, :street, :city, :state, :website, :category, :description
+      )
     end
 end
