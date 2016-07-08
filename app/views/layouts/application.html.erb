@@ -7,8 +7,13 @@
   <%= stylesheet_link_tag    'main', media: 'all' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'jquery.dropotron.min' %>
+  <%= javascript_include_tag 'skel.min' %>
   <%= javascript_include_tag 'main' %>
+  <%= javascript_include_tag 'jquery.dropotron.min' %>
+  <%= javascript_include_tag 'jquery.min' %>
+  <%= javascript_include_tag 'jquery.scrollex.min' %>
+  <%= javascript_include_tag 'util' %>
+
   <%= csrf_meta_tags %>
   <noscript><%= stylesheet_link_tag    'noscript', media: 'all' %></noscript>
 </head>
@@ -16,7 +21,7 @@
     <header id="header" class="alt">
       <h1><a href="<%= root_path %>">Revue</a></h1>
       <nav id="nav">
-        <ul>
+        <ul class>
           <li><a href="<%= venues_path %>">Home</a></li>
           <li>
             <% if user_signed_in? %>

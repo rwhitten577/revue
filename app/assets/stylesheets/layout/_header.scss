@@ -125,7 +125,7 @@
 			@include color-button(accent1);
 			@include color-typography(accent1);
 			@include vendor('animation', 'none');
-			background-color: #444444;
+			background-color: transparent;
 			box-shadow: none;
 			overflow: hidden;
 			position: absolute;
