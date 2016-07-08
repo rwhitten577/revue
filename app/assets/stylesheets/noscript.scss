@@ -1,7 +1,7 @@
 @import "libs/vars";
 @import "libs/functions";
 @import "libs/mixins";
-@import "libs/skel";
+@import 'libs/skel';
 
 #banner {
 	> article {
@@ -9,9 +9,9 @@
 
 		&:first-child {
 			background-image: url("../../images/slide01.jpg");
-			display: block;
-			opacity: 1;
-			visibility: visible;
+			display: block !important;
+			opacity: 1 !important;
+			visibility: visible !important;
 		}
 	}
 }
