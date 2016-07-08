@@ -1,4 +1,5 @@
 <body>
+  
   <section id="banner">
     <article>
       <img src="http://static.highsnobiety.com/wp-content/uploads/2016/02/03011837/usher-chains-video-00.jpg" alt="" />
@@ -28,7 +29,7 @@
             <section class="post venue">
               <span class="image"><img src="http://www.tetongravity.com/images/ci-images/kickapps/PHOTO_6806949_75233_8288743_ap.jpg" alt="" /></span>
               <div class="content">
-                <h3><strong><a href="venue_path(venue)"><%= venue.name %></a></strong></h3>
+                <h3><strong><a href="<%= venue_path(venue) %>"><%= venue.name %></a></strong></h3>
                 <h3><%= venue.city %>, <%= venue.state %></h3>
                 <p><%= venue.description %></p>
                 <ul class="actions">
