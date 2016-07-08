@@ -3,19 +3,15 @@ require 'rails_helper'
 feature 'user deletes venue' do
   let!(:venue) { FactoryGirl.create(:venue) }
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:review) { FactoryGirl.attributes_for(:review, user: user) }
+  let!(:review) { FactoryGirl.create(:review, user: user, venue: venue) }
 
   context 'user is signed in' do
     before do
-      sign_in
+      sign_in(user)
     end
 
     scenario 'deletes review from show page' do
       visit venue_path(venue)
-      click_link 'Add New Review'
-      select 10, from: 'review_rating'
-      fill_in 'review_description', with: 'This place is awesome!!!!'
-      click_on 'Submit Review'
       click_link('Delete Review')
 
       expect(Review.all.count).to eq(0)

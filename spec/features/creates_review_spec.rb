@@ -3,11 +3,10 @@ require 'rails_helper'
 feature 'user creates review' do
   let!(:venue) { FactoryGirl.create(:venue) }
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:review) { FactoryGirl.attributes_for(:review, user: user) }
 
   context 'user is signed in' do
     before do
-      sign_in
+      sign_in(user)
     end
 
     scenario 'visits new review form' do

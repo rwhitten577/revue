@@ -18,7 +18,7 @@ feature 'user creates venue' do
 
   context 'authenticated user' do
     before do
-      sign_in
+      sign_in(user)
     end
 
     scenario 'visits new venue form' do
