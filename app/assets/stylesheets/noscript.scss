@@ -1,6 +1,6 @@
-@import "libs/vars";
-@import "libs/functions";
-@import "libs/mixins";
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
 @import 'libs/skel';
 
 #banner {
@@ -8,7 +8,7 @@
 		display: none;
 
 		&:first-child {
-			background-image: url("../../images/slide01.jpg");
+			background-image: url('../../images/slide01.jpg');
 			display: block !important;
 			opacity: 1 !important;
 			visibility: visible !important;
