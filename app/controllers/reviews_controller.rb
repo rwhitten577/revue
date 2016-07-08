@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @venue = Venue.find(params[:venue_id])
     @review.venue = @venue
+    @review.user = current_user
     if @review.save
       flash[:notice] = "Review successfully added!"
       redirect_to venue_path(@venue)
@@ -16,6 +17,10 @@ class ReviewsController < ApplicationController
   def new
     @venue = Venue.find(params[:venue_id])
     @review = Review.new
+    unless user_signed_in?
+      flash[:notice] = "You must be signed in to add a new review"
+      redirect_to venue_path(@venue)
+    end
   end
 
   def edit

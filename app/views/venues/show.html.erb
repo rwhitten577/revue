@@ -1,8 +1,10 @@
 <%= @venue.name %>
 <%= @venue.category %>
 
-<%= link_to "Edit Venue", edit_venue_path(@venue) %>
-<%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
+<% if user_signed_in? %>
+  <%= link_to "Edit Venue", edit_venue_path(@venue) %>
+  <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
+<% end %>
 
 <% if @reviews %>
   <h4>Reviews:</h4>
@@ -22,7 +24,3 @@
 <% end %>
 
 <%= link_to "Add New Review", new_venue_review_path(@venue) %>
-<% if user_signed_in? %>
-  <%= link_to "Edit Venue", edit_venue_path(@venue) %>
-  <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
-<% end %>
