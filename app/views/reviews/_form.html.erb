@@ -1,0 +1,20 @@
+  <%= form_for [@venue, @review] do |f| %>
+    <div class="row rating">
+      <%= f.label :rating %>
+      <%= f.select :rating, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] %>
+    </div>
+    <div class="row description">
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description, size: "50x5" %>
+    </div>
+    <% if @review.errors.any? %>
+        <div class="error_explanation">
+          <ul>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li>*<%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
+  <%= f.submit "Submit Review", class: "button" %>
+<% end %>

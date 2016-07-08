@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 feature 'user edits venue' do
-  let(:venue) { FactoryGirl.create(:venue) }
+  let!(:user) { FactoryGirl.create(:user) }
+  let(:venue) { FactoryGirl.create(:venue, user: user) }
   let(:new_venue) { FactoryGirl.build(:venue) }
 
   context 'inauthenticated user' do
@@ -14,7 +15,11 @@ feature 'user edits venue' do
 
   context 'authenticated user' do
     before do
-      sign_in
+      visit venues_path
+      click_link 'Sign In'
+      fill_in 'Login', with: user[:email]
+      fill_in 'Password', with: 'password'
+      click_button 'Log in'
     end
 
     scenario 'visits edit venue form' do

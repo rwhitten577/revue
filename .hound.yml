@@ -3,6 +3,7 @@ AllCops:
     - db/schema.rb
     - assets/stylesheets/noscript.scss
     - assets/stylesheets/main.scss
+    - db/migrations
   #DisplayCopNames: true
 
 AccessorMethodName:

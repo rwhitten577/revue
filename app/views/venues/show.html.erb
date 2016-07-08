@@ -1,11 +1,31 @@
 <div class="venue">
   <h3><%= @venue.name %></h3>
   <h3><%= @venue.category %></h3>
-
   <div>
-  <% if user_signed_in? %>
+  <% if user_signed_in? && @venue.user == current_user %>
     <%= link_to "Edit Venue", edit_venue_path(@venue) %>
     <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
   <% end %>
   </div>
+<% if @reviews %>
+  <h4>Reviews:</h4>
+  <ul>
+    <% @reviews.each do |review| %>
+    Rating: <%= review.rating %>
+    <br />
+    Description: <%= review.description %>
+    <br />
+    Vote Score: <%= review.upvotes - review.downvotes %>
+    <br />
+      <% if user_signed_in? && review.user == current_user %>
+      <%= link_to "Edit Review", edit_venue_review_path(@venue, review) %>
+      <br />
+      <%= link_to "Delete Review", venue_review_path(@venue, review), method: :delete %>
+      <br />
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Add New Review", new_venue_review_path(@venue) %>
 </div>

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 feature 'user creates venue' do
-  let(:venue) { FactoryGirl.attributes_for(:venue) }
+  let!(:user) { FactoryGirl.create(:user) }
+  let(:venue) { FactoryGirl.attributes_for(:venue, user: user) }
 
   context 'inauthenticated user' do
     scenario 'unauthorized user visits new venue form' do
@@ -17,7 +18,7 @@ feature 'user creates venue' do
 
   context 'authenticated user' do
     before do
-      sign_in
+      sign_in(user)
     end
 
     scenario 'visits new venue form' do

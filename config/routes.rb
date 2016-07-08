@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :venues do
     resources :reviews
   end
+  resources :reviews
 
   devise_for :users
   devise_scope :user do
