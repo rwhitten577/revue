@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     else
       flash[:notice] = "There were problems saving your review."
       flash[:errors] = @review.errors.full_messages.join(', ')
-      render :venue
+      render :new
     end
   end
 
@@ -19,33 +19,35 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @venue = Venue.find(params[:venue_id])
     @review = Review.find(params[:id])
   end
 
   def update
+    @venue = Venue.find(params[:venue_id])
     @review = Review.find(params[:id])
+    @review.venue = @venue
     if @review.update(review_params)
       flash[:notice] = "Review successfully edited!"
       redirect_to venue_path(@venue)
     else
       flash[:notice] = "There were problems saving your review."
       flash[:errors] = @review.errors.full_messages.join(', ')
-      render :venue
+      redirect_to venue_path(@venue)
     end
   end
 
   def destroy
     @review = Review.find(params[:id])
+    @venue = Venue.find(params[:venue_id])
     @review.destroy
     flash[:notice] = "Review deleted!"
-    redirect_to venues_path
+    redirect_to venue_path(@venue)
   end
-
-
 
   private
 
   def review_params
-    params.require(:review).permit(:description, :rating, :upvotes, :downvotes)
+    params.require(:review).permit(:venue_id, :description, :rating, :upvotes, :downvotes)
   end
 end

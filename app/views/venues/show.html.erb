@@ -3,3 +3,22 @@
 
 <%= link_to "Edit Venue", edit_venue_path(@venue) %>
 <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
+
+<% if @reviews %>
+  <h4>Reviews:</h4>
+  <ul>
+    <% @reviews.each do |review| %>
+    Rating: <%= review.rating %>
+    <br />
+    Description: <%= review.description %>
+    <br />
+    Vote Score: <%= review.upvotes - review.downvotes %>
+    <br />
+    <%= link_to "Edit Review", edit_venue_review_path(@venue, review) %>
+    <%= link_to "Delete Review", venue_review_path(@venue, review), method: :delete %>
+    <br />
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Add New Review", new_venue_review_path(@venue) %>

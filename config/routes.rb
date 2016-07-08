@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :venues do
     resources :reviews
   end
+  resources :reviews
 end

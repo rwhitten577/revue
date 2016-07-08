@@ -22,7 +22,6 @@ FactoryGirl.define do
 
   factory :review do
     association :venue
-    association :user
     rating 10
     description "Great venue!"
     upvotes 5
