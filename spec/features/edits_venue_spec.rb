@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user edits venue' do
   let(:venue) { FactoryGirl.create(:venue) }
-  let(:new_venue)  { FactoryGirl.build(:venue) }
+  let(:new_venue) { FactoryGirl.build(:venue) }
 
   context 'inauthenticated user' do
     scenario 'cannot edit venue' do

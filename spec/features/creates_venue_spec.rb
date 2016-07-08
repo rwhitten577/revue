@@ -63,7 +63,6 @@ feature 'user creates venue' do
       fill_in 'venue_description', with: venue[:description]
       click_button 'Add Venue'
 
-
       expect(page).to have_content("Name can't be blank")
       expect(page).to have_content("Street can't be blank")
 
