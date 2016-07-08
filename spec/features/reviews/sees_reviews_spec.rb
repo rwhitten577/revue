@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature "user sees reviews" do
-  scenario "sees all the reviews for a venue on the venue page" do
+feature 'user sees reviews' do
+  scenario 'sees all the reviews for a venue on the venue page' do
 
     venue =  FactoryGirl.create(:venue)
     user = FactoryGirl.create(:user)
