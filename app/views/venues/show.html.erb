@@ -1,5 +1,7 @@
 <%= @venue.name %>
 <%= @venue.category %>
 
-<%= link_to "Edit Venue", edit_venue_path(@venue) %>
-<%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
+<% if user_signed_in? %>
+  <%= link_to "Edit Venue", edit_venue_path(@venue) %>
+  <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
+<% end %>
