@@ -4,7 +4,6 @@
 	License: pixelarity.com/license
 */
 
-
 var settings = {
 
 	banner: {
