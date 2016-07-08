@@ -24,6 +24,7 @@ feature 'user deletes venue' do
       expect(page).not_to have_content('This place is awesome!!!!')
     end
   end
+
   context 'user is not signed in' do
     scenario 'cannot delete review from show page' do
       visit venue_path(venue)
