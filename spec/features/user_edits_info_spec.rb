@@ -50,7 +50,8 @@ feature 'user edits account information' do
 
   scenario 'user uploads new profile photo' do
     fill_in 'Current password', with: 'password'
-    attach_file 'Avatar', "#{Rails.root}/spec/support/images/studio_engineer.jpeg"
+    attach_file 'Avatar',
+      "#{Rails.root}/spec/support/images/studio_engineer.jpeg"
     click_button 'Update'
 
     expect(page).to have_css("img[src*='studio_engineer.jpeg']")

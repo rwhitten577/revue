@@ -9,16 +9,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def image
-    filename = "#{username.gsub(" ", "_")}.jpg"
-    path = "#{Rails.root}/public/images/#{filename}"
-    if File.exists?(path)
-      return filename
-    else
-      return avatar.url
-    end
-  end
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
