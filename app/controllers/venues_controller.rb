@@ -1,7 +1,7 @@
 class VenuesController < ApplicationController
   def index
     if params[:search]
-      @venues = Venue.search(params['search']).order('name DESC')
+      @venues = Venue.search(params[:search]).order('name DESC')
     else
       @venues = Venue.all.order('name ASC')
     end
