@@ -1,6 +1,11 @@
 class Venue < ActiveRecord::Base
 
-CATEGORIES = [["Music", "Music"], ["Comedy", "Comedy"], ["Poetry", "Poetry"], ["Theater", "Theater"]]
+  CATEGORIES = [
+    ['Music', 'Music'],
+    ['Comedy', 'Comedy'],
+    ['Poetry', 'Poetry'],
+    ['Theater', 'Theater']
+  ]
 
   validates :name, presence: true
   validates :street, presence: true
@@ -10,4 +15,8 @@ CATEGORIES = [["Music", "Music"], ["Comedy", "Comedy"], ["Poetry", "Poetry"], ["
 
   has_many :reviews
   belongs_to :user
+
+  def self.search(query)
+    where('name ILIKE ?', "%#{query}%")
+  end
 end

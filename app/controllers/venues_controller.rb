@@ -1,6 +1,10 @@
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.all.order("name ASC")
+    if params[:search]
+      @venues = Venue.search(params[:search]).order('name DESC')
+    else
+      @venues = Venue.all.order('name ASC')
+    end
   end
 
   def show

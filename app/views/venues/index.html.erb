@@ -23,6 +23,12 @@
   <section id="three" class="wrapper style2">
     <div class="inner">
       <h2>Venues</h2>
+      <div>
+        <%= form_tag venues_path, method: 'get' do %>
+          <%= text_field_tag :search, params[:search], placeholder: 'Search Venues' %>
+          <%= submit_tag 'Search', name: nil %>
+          <% end %>
+        </div>
       <div class="posts venues">
         <ul>
           <% @venues.each do |venue| %>
