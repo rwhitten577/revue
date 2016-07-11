@@ -12,6 +12,6 @@ CATEGORIES = [["Music", "Music"], ["Comedy", "Comedy"], ["Poetry", "Poetry"], ["
   belongs_to :user
 
   def self.search(query)
-    where("name ILIKE ?", "%#{query}%")
+    where('name ILIKE ?', "%#{query}%")
   end
 end

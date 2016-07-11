@@ -19,7 +19,7 @@ feature 'search bar' do
   scenario 'returns nothing when no venues match' do
     visit venues_path
     fill_in :search, with: 'xschilvdivb'
-    click_button "Search"
+    click_button 'Search'
 
     expect(page).not_to have_content('House of blues')
   end
