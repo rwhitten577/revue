@@ -10,4 +10,8 @@ CATEGORIES = [["Music", "Music"], ["Comedy", "Comedy"], ["Poetry", "Poetry"], ["
 
   has_many :reviews
   belongs_to :user
+
+  def self.search(query)
+    where("name ILIKE ?", "%#{query}%")
+  end
 end
