@@ -17,3 +17,7 @@
 
 # Ignore .env
 .env
+
+# Ignore public images
+/public/images
+/public/uploads
