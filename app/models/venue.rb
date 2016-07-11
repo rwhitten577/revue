@@ -1,6 +1,6 @@
 class Venue < ActiveRecord::Base
 
-CATEGORIES = [["Music", "Music"], ["Comedy", "Comedy"], ["Poetry", "Poetry"], ["Theater", "Theater"]]
+  CATEGORIES = [["Music", "Music"], ["Comedy", "Comedy"], ["Poetry", "Poetry"], ["Theater", "Theater"]]
 
   validates :name, presence: true
   validates :street, presence: true
