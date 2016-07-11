@@ -15,6 +15,7 @@ feature 'user creates account' do
     expect(page).to have_content('Email')
     expect(page).to have_content('Password')
     expect(page).to have_content('Password confirmation')
+    expect(page).to have_content('Avatar')
     expect(page).to have_button('Sign up')
   end
 
@@ -24,6 +25,7 @@ feature 'user creates account' do
     fill_in 'Username', with: user[:username]
     fill_in 'Email', with: user[:email]
     fill_in 'Password', with: user[:password]
+    fill_in 'Password confirmation', with: user[:password]
     fill_in 'Password confirmation', with: user[:password]
     click_button 'Sign up'
 
@@ -43,5 +45,19 @@ feature 'user creates account' do
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
     expect(page).to have_content("Encrypted password can't be blank")
+  end
+
+  scenario 'user uploads profile photo' do
+    visit venues_path
+    click_link 'Sign Up'
+    fill_in 'Username', with: user[:username]
+    fill_in 'Email', with: user[:email]
+    fill_in 'Password', with: user[:password]
+    fill_in 'Password confirmation', with: user[:password]
+    fill_in 'Password confirmation', with: user[:password]
+    attach_file'Avatar', 'spec/support/images/studio_engineer.jpeg'
+    click_button 'Sign up'
+
+    expect(page).to have_css("img[src*='studio_engineer.jpeg']")
   end
 end
