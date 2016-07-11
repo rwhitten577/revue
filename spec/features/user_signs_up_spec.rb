@@ -56,7 +56,7 @@ feature 'user creates account' do
     fill_in 'Password confirmation', with: user[:password]
     fill_in 'Password confirmation', with: user[:password]
     attach_file
-      'Avatar',
+      'Avatar'
       "#{Rails.root}/spec/support/images/studio_engineer.jpeg"
     click_button 'Sign up'
 
