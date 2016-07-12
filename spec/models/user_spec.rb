@@ -1,11 +1,12 @@
 require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) do
-    User.new(
-      username: 'xxxxx',
-      email: 'flvbliv',
-      encrypted_password: 'jfoeiej',
-      admin: false
+    User.new
+      (
+        username: 'xxxxx',
+        email: 'flvbliv',
+        encrypted_password: 'jfoeiej',
+        admin: false
       )
   end
 
