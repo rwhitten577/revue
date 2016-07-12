@@ -20,8 +20,8 @@ class VotesController < ApplicationController
       @review.update_attributes(sum_votes: @review.votes_total)
       @review.save
 
-      render do |format|
-        format.json { votes_count: '@review.votes_total', review_id: '@review.id' }
+      respond_to do |format|
+        format.json { render json: { votes_count: @review.votes_total, review_id: @review.id } }
       end
     else
       flash[:error] = 'Something went wrong with your request.'

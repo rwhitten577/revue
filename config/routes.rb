@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   resources :venues do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
-  
+
   resources :reviews, only: [:new, :create, :edit, :update, :destroy] do
-    resources :votes, only: [:create]
+    resources :votes, only: [:create], defaults: { format: 'json' }
   end
 
   devise_for :users

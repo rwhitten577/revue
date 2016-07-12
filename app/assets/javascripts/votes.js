@@ -7,8 +7,8 @@ $(document).ready(function() {
 
      $.post('/reviews/' + reviewId + '/votes')
       .done(function(resp) {
+        debugger;
         $('.total-votes-' + resp.review_id ).html(resp.votes_count);
-        $('.container').html(resp.flash);
       })
    })
 
