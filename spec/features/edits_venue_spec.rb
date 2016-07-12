@@ -2,8 +2,11 @@ require 'rails_helper'
 
 feature 'user edits venue' do
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:another_user) { FactoryGirl.create(:user, admin: true) }
   let(:venue) { FactoryGirl.create(:venue, user: user) }
   let(:new_venue) { FactoryGirl.build(:venue) }
+  let(:venue_2) { FactoryGirl.create(:venue, user: another_user) }
+
 
   context 'inauthenticated user' do
     scenario 'cannot edit venue' do
@@ -13,7 +16,7 @@ feature 'user edits venue' do
     end
   end
 
-  context 'authenticated user' do
+  context 'current user created venue' do
     before do
       visit venues_path
       click_link 'Sign In'
@@ -110,6 +113,28 @@ feature 'user edits venue' do
       expect(page).to have_content("City can't be blank")
       expect(page).to have_content("State can't be blank")
       expect(page).to have_content('There were problems saving your venue')
+    end
+
+    scenario 'current user did not create venue' do
+      visit venue_path(venue_2)
+
+      expect(page).not_to have_link('Edit Venue')
+    end
+  end
+
+  context 'user is admin' do
+    before do
+      visit venues_path
+      click_link 'Sign In'
+      fill_in 'Login', with: another_user[:email]
+      fill_in 'Password', with: 'password'
+      click_button 'Log in'
+    end
+
+    scenario 'can edit a venue' do
+      visit venue_path(venue)
+
+      expect(page).to have_link('Edit Venue')
     end
   end
 end
