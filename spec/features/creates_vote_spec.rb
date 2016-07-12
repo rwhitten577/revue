@@ -4,6 +4,7 @@ feature 'user upvotes' do
   let!(:venue) { FactoryGirl.create(:venue) }
   let!(:user) { FactoryGirl.create(:user) }
   let!(:review) { FactoryGirl.create(:review, user: user, venue: venue) }
+  let!(:vote) { FactoryGirl.create(:vote, user: user, review: review) }
   let!(:another_review) { FactoryGirl.create(:review, user: user, venue: venue, description: "Review 2 description") }
 
   context 'user is signed in' do
@@ -18,10 +19,9 @@ feature 'user upvotes' do
       expect(page).to have_selector('.downvote')
       expect(page).to have_selector('.review')
 
-      page.all('.upvote')[1].click
-      expect(page).to have_content('1')
-
-      expect(find('.review-description', match: :first).text).to include(another_review.description)
+      page.all('.upvote')[0].click
+      
+      expect(page).to have_content('2')
     end
 
     scenario 'user downvotes' do
@@ -29,7 +29,6 @@ feature 'user upvotes' do
 
       page.all('.downvote')[0].click
       expect(page).to have_content('-1')
-      expect(find('.review-description', match: :first).text).to include(another_review.description)
     end
   end
 end

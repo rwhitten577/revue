@@ -6,10 +6,12 @@ class Review < ActiveRecord::Base
 
   belongs_to :venue
   belongs_to :user
-  has_many :upvotes, dependent: :destroy
-  has_many :downvotes, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   def votes_total
-    self.upvotes.count - self.downvotes.count
+    unless self.votes.nil?
+      votes_arr = self.votes.map { |v| v.value  }
+      total = votes_arr.inject(:+)
+    end
   end
 end

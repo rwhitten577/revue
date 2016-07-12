@@ -11,6 +11,8 @@ gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'launchy'

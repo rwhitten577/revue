@@ -23,9 +23,9 @@ FactoryGirl.define do
     sum_votes 0
   end
 
-  factory :comment do
+  factory :vote do
     association :user
     association :review
-    sequence (:body) { |n| "Amazing comment #{n}" }
+    value 1
   end
 end

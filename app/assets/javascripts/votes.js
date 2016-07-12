@@ -4,11 +4,11 @@ $(document).ready(function() {
 
      var $this = $(this);
      var reviewId = $this.data('reviewid');
-     var venueId = $this.data('venueid');
 
-     $.post('/venues/' + venueId + '/reviews/' + reviewId + '/upvote')
+     $.post('/reviews/' + reviewId + '/votes')
       .done(function(resp) {
         $('.total-votes-' + resp.review_id ).html(resp.votes_count);
+        $('.container').html(resp.flash);
       })
    })
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
      var reviewId = $this.data('reviewid');
      var venueId = $this.data('venueid');
 
-     $.post('/venues/' + venueId + '/reviews/' + reviewId + '/downvote')
+     $.post('/reviews/' + reviewId + '/votes')
       .done(function(resp) {
          $('.total-votes-' + resp.review_id ).html(resp.votes_count);
       })
