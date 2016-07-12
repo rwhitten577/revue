@@ -1,0 +1,8 @@
+<h1 class='user_header'>Revue User Catalog</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <%= link_to user.username, admin_user_path(user) %><br />
+    <br />
+  <% end %>
+</ul>

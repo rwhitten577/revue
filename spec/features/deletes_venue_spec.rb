@@ -4,8 +4,10 @@ feature 'user deletes venue' do
   let!(:another_venue)  { FactoryGirl.create(:venue) }
   let!(:user) { FactoryGirl.create(:user) }
   let!(:venue) { FactoryGirl.create(:venue, user: user) }
+  let!(:admin) { FactoryGirl.create(:user, admin: true) }
+  let(:venue_2) { FactoryGirl.create(:venue, user: admin) }
 
-  scenario 'authenticated user deletes venue from show page' do
+  scenario 'authenticated user deletes venue from show page if their venue' do
     visit venues_path
     click_link 'Sign In'
     fill_in 'Login', with: user[:email]
@@ -26,5 +28,28 @@ feature 'user deletes venue' do
     visit venue_path(venue)
 
     expect(page).not_to have_link('Delete Venue')
+  end
+
+  scenario 'authenticated user cannot delete venue not their own' do
+    visit venues_path
+    click_link 'Sign In'
+    fill_in 'Login', with: user[:email]
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+
+    visit venue_path(venue_2)
+
+    expect(page).not_to have_link('Delete Venue')
+  end
+
+  scenario 'admin can delete any venue' do
+    visit venues_path
+    click_link 'Sign In'
+    fill_in 'Login', with: admin[:email]
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+
+    visit venue_path(venue)
+    expect(page).to have_link('Delete Venue')
   end
 end
