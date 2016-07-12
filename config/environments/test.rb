@@ -31,7 +31,7 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
   config.action_mailer.default_url_options = {
-    host: "localhost",
+    host: 'localhost',
     port: 3000
   }
 
