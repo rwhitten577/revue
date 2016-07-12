@@ -1,13 +1,12 @@
 require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) do
-    User.new
-      (
+    User.new(
         username: 'xxxxx',
         email: 'flvbliv',
         encrypted_password: 'jfoeiej',
         admin: false
-      )
+            )
   end
 
   it { is_expected.to have_valid(:username).when('boringusername') }
