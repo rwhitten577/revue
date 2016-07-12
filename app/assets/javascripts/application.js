@@ -13,9 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require main
-//= require jquery.min
-//= require util
-//= require skel.min
-//= require jquery.scrollex.min
-//= require jquery.dropotron.min

@@ -20,8 +20,7 @@ FactoryGirl.define do
     association :venue
     rating 10
     description 'Great venue!'
-    upvotes 5
-    downvotes 3
+    sum_votes 0
   end
 
   factory :comment do

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root to: 'venues#index'
   resources :venues do
-    resources :reviews
+    resources :reviews do
+      post 'upvote', to: 'votes#create_upvote'
+      post 'downvote', to: 'votes#create_downvote'
+    end
   end
   resources :reviews
 

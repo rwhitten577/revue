@@ -11,21 +11,29 @@
   <h4>Reviews:</h4>
   <ul>
     <% @reviews.each do |review| %>
-    Rating: <%= review.rating %>
-    <br />
-    Description: <%= review.description %>
-    <br />
-    Vote Score: <%= review.upvotes - review.downvotes %>
-    <br />
-      <% if user_signed_in? && review.user == current_user %>
-      <%= link_to "Edit Review", edit_venue_review_path(@venue, review) %>
-      <br />
-      <%= link_to "Delete Review", venue_review_path(@venue, review), method: :delete %>
-      <br />
-      <% end %>
+    <div class="review">
+        Rating: <%= review.rating %>
+        <p class="review-description">
+          Description: <%= review.description %>
+        </p>
+        <br />
+        <% if user_signed_in? && review.user == current_user %>
+          <%= link_to "Edit Review", edit_venue_review_path(@venue, review) %>
+          <br />
+          <%= link_to "Delete Review", venue_review_path(@venue, review), method: :delete %>
+          <br />
+            <%= link_to "", venue_review_upvote_path(@venue, review), class: "upvote fa fa-thumbs-up", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
+          <p class="total-votes-<%= review.id %>">
+            <%= review.sum_votes %>
+          </p>
+          <span class="downvote-<%= review.id %>">
+            <%= link_to "", venue_review_downvote_path(@venue, review), class: "downvote fa fa-thumbs-down", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
+          </span>
+        <% end %>
+      </div>
     <% end %>
   </ul>
 <% end %>
 
-<%= link_to "Add New Review", new_venue_review_path(@venue) %>
+<%= link_to "Add New Review", new_venue_review_path(@venue), class: "new-review" %>
 </div>
