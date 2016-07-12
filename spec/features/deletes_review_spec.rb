@@ -32,7 +32,6 @@ feature 'user deletes venue' do
   end
 
   context 'didnt create review or admin' do
-
     scenario 'didnt create review so cant delete' do
       sign_in(user_2)
 

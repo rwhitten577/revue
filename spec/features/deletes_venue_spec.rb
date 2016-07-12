@@ -5,7 +5,7 @@ feature 'user deletes venue' do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:venue) { FactoryGirl.create(:venue, user: user) }
   let!(:admin) { FactoryGirl.create(:user, admin: true) }
-  let(:venue_2) { FactoryGirl.create(:venue, user: admin ) }
+  let(:venue_2) { FactoryGirl.create(:venue, user: admin) }
 
   scenario 'authenticated user deletes venue from show page if their venue' do
     visit venues_path

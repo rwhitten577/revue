@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'admin' do
   let!(:admin) { FactoryGirl.create(:user, admin: true) }
   let!(:user) { FactoryGirl.create(:user) }

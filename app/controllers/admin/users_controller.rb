@@ -7,13 +7,12 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   def destroy
     user = User.find(params[:id])
     review = Review.find_by(params[:user_id])
     venue = Venue.find_by(params[:user_id])
-    review.destroy if !review.nil?
-    venue.destroy if !venue.nil?
+    review.destroy unless review.nil?
+    venue.destroy unless venue.nil?
     user.destroy
     redirect_to admin_users_path
   end
