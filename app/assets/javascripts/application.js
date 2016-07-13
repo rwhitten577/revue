@@ -19,3 +19,6 @@
 //= require skel.min
 //= require jquery.scrollex.min
 //= require jquery.dropotron.min
+//= require react
+//= require components
+//= require react_ujs
