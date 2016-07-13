@@ -95,9 +95,7 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
-<<<<<<< HEAD
     ffi (1.9.10)
-=======
     fog-aws (0.9.4)
       fog-core (~> 1.38)
       fog-json (~> 1.0)
@@ -113,7 +111,6 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
->>>>>>> d747ecf97942803fc3289daefe9b35a673a9238a
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
@@ -270,11 +267,8 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-<<<<<<< HEAD
   capybara-webkit
-=======
   carrierwave
->>>>>>> d747ecf97942803fc3289daefe9b35a673a9238a
   coveralls
   database_cleaner
   devise

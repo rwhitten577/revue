@@ -5,7 +5,6 @@ feature 'user sees reviews' do
     venue = FactoryGirl.create(:venue)
     user = FactoryGirl.create(:user)
     review = FactoryGirl.create(:review, user: user, venue: venue)
-    another_review = FactoryGirl.create(:review, user: user, venue: venue)
 
     visit venue_path(venue)
 
