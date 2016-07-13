@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
   gem 'capybara'
@@ -19,11 +20,13 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda-matchers'
   gem 'valid_attribute'
+  gem 'poltergeist'
 end
 
 group :test do
   gem 'coveralls', require: false
   gem 'launchy', require: false
+  gem 'database_cleaner'
 end
 
 group :production do

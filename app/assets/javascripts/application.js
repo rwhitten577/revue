@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.min
+//= require jquery.dropotron.min
+//= require skel.min
+//= require util
+//= require votes
+//= require main
