@@ -51,21 +51,18 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-<<<<<<< HEAD
     capybara-webkit (1.10.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
-=======
     carrierwave (0.11.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
->>>>>>> d747ecf97942803fc3289daefe9b35a673a9238a
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     coveralls (0.8.13)
