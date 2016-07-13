@@ -40,7 +40,7 @@
 		}
 
 		&.fit {
-			display: block;
+			display: inline-block;
 			margin: 0 0 (_size(element-margin) * 0.5) 0;
 			width: 100%;
 		}

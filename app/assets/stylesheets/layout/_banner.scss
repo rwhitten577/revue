@@ -12,8 +12,8 @@
 
 	#banner {
 		@include color-typography(accent1);
-		min-height: 40em;
-		height: 75vh;
+		min-height: 20em;
+		height: 30vh;
 		position: relative;
 
 		&:after {

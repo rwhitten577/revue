@@ -42,7 +42,7 @@ feature 'user creates review' do
 
       expect(page).to have_content(venue.name)
       expect(page).to have_content('You must be signed in to add a new review')
-      expect(page).not_to have_selector('form')
+      expect(page).not_to have_selector('rating')
     end
   end
 end
