@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature 'user creates review' do
-  let!(:venue) { FactoryGirl.create(:venue) }
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:venue) { FactoryGirl.create(:venue, user: user) }
 
   context 'user is signed in' do
     before do
@@ -21,6 +21,8 @@ feature 'user creates review' do
     end
 
     scenario 'inputs valid rating' do
+      ActionMailer::Base.deliveries.clear
+
       visit venue_path(venue)
       click_link 'Add New Review'
       select 10, from: 'review_rating'
@@ -29,6 +31,7 @@ feature 'user creates review' do
       expect(page).to have_content('Review successfully added!')
       expect(current_path).to eq("/venues/#{Venue.first.id}")
       expect(page).to have_content(:review)
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
   end
 
