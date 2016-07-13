@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_action :set_review, :login_user
+  before_action :login_user, :set_params
 
   skip_before_action :verify_authenticity_token
 
@@ -7,9 +7,8 @@ class VotesController < ApplicationController
     @vote = Vote.where(user: current_user, review: @review).first
 
     if @vote.nil?
-      @vote = Vote.new(review: @review)
+      @vote = Vote.new(review: @review, value: @value)
       @vote.user = current_user
-      @vote.value = params[:value].to_i
     elsif @vote.value == params[:value].to_i
       @vote.value = 0
     else
@@ -21,7 +20,7 @@ class VotesController < ApplicationController
       @review.save
 
       respond_to do |format|
-        format.json { render json: { votes_count: @review.votes_total, review_id: @review.id } }
+        format.json { render json: { votes_count: @review.sum_votes, review_id: @review.id } }
       end
     else
       flash[:error] = 'Something went wrong with your request.'
@@ -31,8 +30,9 @@ class VotesController < ApplicationController
 
   private
 
-  def set_review
+  def set_params
     @review = Review.find(params[:review_id])
+    @value = params[:value]
   end
 
   def login_user

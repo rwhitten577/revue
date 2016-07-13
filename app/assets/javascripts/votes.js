@@ -5,10 +5,14 @@ $(document).ready(function() {
      var $this = $(this);
      var reviewId = $this.data('reviewid');
 
-     $.post('/reviews/' + reviewId + '/votes')
-      .done(function(resp) {
-        debugger;
-        $('.total-votes-' + resp.review_id ).html(resp.votes_count);
+     var request = $.ajax({
+        method: "POST",
+        url: '/reviews/' + reviewId + '/votes',
+        data: { value: 1 }
+      });
+
+      request.done(function(data) {
+        $('.total-votes-' + data.review_id ).html(data.votes_count);
       })
    })
 
@@ -17,11 +21,15 @@ $(document).ready(function() {
 
      var $this = $(this);
      var reviewId = $this.data('reviewid');
-     var venueId = $this.data('venueid');
 
-     $.post('/reviews/' + reviewId + '/votes')
-      .done(function(resp) {
-         $('.total-votes-' + resp.review_id ).html(resp.votes_count);
+     var request = $.ajax({
+        method: "POST",
+        url: '/reviews/' + reviewId + '/votes',
+        data: { value: -1 }
+      });
+
+      request.done(function(data) {
+        $('.total-votes-' + data.review_id ).html(data.votes_count);
       })
   });
 })

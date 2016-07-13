@@ -23,12 +23,12 @@
           <%= link_to "Delete Review", venue_review_path(@venue, review), method: :delete %>
           <br />
           <% end %>
-            <%= link_to "", review_votes_path(review, value: '1'), method: :post, class: "upvote fa fa-thumbs-up", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
+            <%= link_to "", review_votes_path(review, value: 1), class: "upvote fa fa-thumbs-up", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
           <p class="total-votes-<%= review.id %>">
             <%= review.sum_votes %>
           </p>
           <span class="downvote-<%= review.id %>">
-            <%= link_to "", review_votes_path(review, value: '-1'), method: :post, class: "downvote fa fa-thumbs-down", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
+            <%= link_to "", review_votes_path(review, value: -1), class: "downvote fa fa-thumbs-down", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
           </span>
       </div>
     <% end %>

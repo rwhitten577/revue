@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:new, :create, :edit, :update, :destroy] do
-    resources :votes, only: [:create], defaults: { format: 'json' }
+    resources :votes, only: [:create]
   end
 
   devise_for :users

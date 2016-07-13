@@ -9,7 +9,9 @@ class Review < ActiveRecord::Base
   has_many :votes, dependent: :destroy
 
   def votes_total
-    unless self.votes.nil?
+    if self.votes.nil?
+      return 0
+    else
       votes_arr = self.votes.map { |v| v.value  }
       total = votes_arr.inject(:+)
     end
