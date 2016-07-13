@@ -17,7 +17,7 @@
           Description: <%= review.description %>
         </p>
         <br />
-        <% if user_signed_in? && review.user == current_user %>
+        <% if user_signed_in? && (review.user == current_user || current_user.admin) %>
           <%= link_to "Edit Review", edit_venue_review_path(@venue, review) %>
           <br />
           <%= link_to "Delete Review", venue_review_path(@venue, review), method: :delete %>
