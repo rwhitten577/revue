@@ -23,6 +23,7 @@ feature 'user edits account information' do
     expect(page).to have_content('Email')
     expect(page).to have_content('Password')
     expect(page).to have_content('Password confirmation')
+    expect(page).to have_content('Avatar')
     expect(page).to have_button('Update')
   end
 
@@ -45,5 +46,13 @@ feature 'user edits account information' do
     click_button 'Update'
 
     expect(page).to have_content('prohibited this user from being saved')
+  end
+
+  scenario 'user uploads new profile photo' do
+    fill_in 'Current password', with: 'password'
+    attach_file'Avatar', 'spec/support/images/studio_engineer.jpeg'
+    click_button 'Update'
+
+    expect(page).to have_css("img[src*='studio_engineer.jpeg']")
   end
 end

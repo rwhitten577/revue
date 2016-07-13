@@ -7,3 +7,10 @@ Venue.create(
   category: 'Music',
   description: "Rock- & blues-themed chain with Southern dishes such as po'
     boys & jambalaya, plus live music.")
+
+User.create(
+  username: 'datboi',
+  email: 'whatup@gmail.com',
+  password: 'password',
+  admin: true
+)

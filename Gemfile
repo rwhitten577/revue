@@ -8,7 +8,8 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
 gem 'font-awesome-rails'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'carrierwave'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'capybara'
@@ -16,11 +17,11 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
-  gem 'launchy'
   gem 'pry-rails'
   gem 'shoulda-matchers'
   gem 'valid_attribute'
   gem 'poltergeist'
+  gem 'dotenv-rails'
 end
 
 group :test do

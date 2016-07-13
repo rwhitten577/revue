@@ -7,12 +7,9 @@ class ReviewsController < ApplicationController
     @review.sum_votes = 0
 
     if @review.save
+      ReviewMailer.new_review(@review).deliver_later
       flash[:notice] = 'Review successfully added!'
       redirect_to venue_path(@venue)
-    else
-      flash[:notice] = 'There were problems saving your review.'
-      flash[:errors] = @review.errors.full_messages.join(', ')
-      render :new
     end
   end
 
@@ -36,9 +33,6 @@ class ReviewsController < ApplicationController
     @review.venue = @venue
     if @review.update(review_params)
       flash[:notice] = 'Review successfully edited!'
-    else
-      flash[:notice] = 'There were problems saving your review.'
-      flash[:errors] = @review.errors.full_messages.join(', ')
     end
     redirect_to venue_path(@venue)
   end
