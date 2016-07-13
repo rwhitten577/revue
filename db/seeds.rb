@@ -1,3 +1,9 @@
+User.create(
+  username: 'datboi',
+  email: 'whatup@gmail.com',
+  password: 'password',
+  admin: true)
+
 Venue.create(
   name: 'House of Blues',
   street: '15 Lansdowne St.',
@@ -6,11 +12,5 @@ Venue.create(
   website: 'http://www.houseofblues.com/boston/',
   category: 'Music',
   description: "Rock- & blues-themed chain with Southern dishes such as po'
-    boys & jambalaya, plus live music.")
-
-User.create(
-  username: 'datboi',
-  email: 'whatup@gmail.com',
-  password: 'password',
-  admin: true
-)
+    boys & jambalaya, plus live music.",
+  user_id: 1)

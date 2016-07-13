@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Revue</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <%= stylesheet_link_tag    'main', media: 'all' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'main' %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <%= csrf_meta_tags %>
+  <noscript><%= stylesheet_link_tag    'noscript', media: 'all' %></noscript>
+</head>
+<body>
+    <header id="header">
+      <h1><a href="<%= root_path %>">Revue</a></h1>
+      <nav id="nav">
+        <ul class>
+          <li>
+          <%= form_tag venues_path, method: 'get', class: 'search' do %>
+            <%= text_field_tag :search, params[:search], placeholder: 'Search Venues', class: 'search-bar' %>
+            <%= submit_tag 'Search', name: nil, class: 'search-submit' %>
+          </li>
+          <% end %>
+          <li><a href="<%= venues_path %>">Home</a></li>
+          <li>
+            <% if user_signed_in? %>
+            <a href="#" class="submenu fa-angle-down">Welcome, <%= current_user.username %></a>
+            <%= image_tag(current_user.avatar, class: "avatar") if user_signed_in? %>
+            <ul>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path, class: 'sign-in' %></li>
+            </ul>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+  <div class="flash">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value  %></div>
+    <% end %>
+  </div>

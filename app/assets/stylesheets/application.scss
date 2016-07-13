@@ -3,6 +3,10 @@
 @import "font-awesome";
 @import "font-awesome.min.css";
 
+.add-venue {
+  display: inline-block;
+}
+
 .avatar {
   width: 40px;
   height: 40px;
@@ -10,10 +14,91 @@
   margin-left: 10px;
 }
 
+.devise {
+  padding: 30px;
+}
+
+.devise .actions {
+  margin-top: 20px;
+}
+
+.devise .field {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.devise label {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.flash .alert {
+  background-color: #444444;
+  height: 50px;
+  color: white;
+  padding-left: 70px;
+  padding-top: 12px;
+}
+
+h2:after {
+  border: 0px;
+}
+
 #header {
   margin-bottom: 100px;
 }
 
-.venue {
-  margin-top: 100px;
+#header h1 {
+  max-width: 100px;
+  margin-right: 0;
+}
+
+nav {
+  overflow: visible;
+}
+
+nav form {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.post {
+  width: 300px;
+}
+
+.post .image {
+  margin-bottom: 0px;
+}
+
+.search {
+  width: 800px;
+}
+
+.search-bar {
+  max-width: 680px;
+}
+
+.search-submit {
+  margin-top: 6px;
+  float: right;
+}
+
+.venue-city, .wrapper.style2 h3{
+  color: #7a7a7a;
+  text-transform: none;
+  padding-bottom: 3px;
+}
+
+.venues-title {
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.venue-title {
+  margin-bottom: 0;
+  padding-bottom: 0px;
+}
+
+.venue-title:after {
+  border: 0px;
 }

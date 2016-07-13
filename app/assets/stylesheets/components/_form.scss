@@ -34,7 +34,7 @@
 		border-radius: 0;
 		background-color: transparent;
 		color: inherit;
-		display: block;
+		display: inline-block;
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
@@ -52,7 +52,7 @@
 
 		&:before {
 			content: '\f107';
-			display: block;
+			display: inline-block;
 			height: _size(element-height);
 			line-height: _size(element-height);
 			pointer-events: none;
