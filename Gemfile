@@ -13,17 +13,21 @@ gem 'fog-aws'
 
 group :development, :test do
   gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'
   gem 'shoulda-matchers'
   gem 'valid_attribute'
+  gem 'poltergeist'
   gem 'dotenv-rails'
 end
 
 group :test do
   gem 'coveralls', require: false
   gem 'launchy', require: false
+  gem 'database_cleaner'
 end
 
 group :production do

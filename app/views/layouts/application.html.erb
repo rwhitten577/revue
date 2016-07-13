@@ -7,13 +7,8 @@
   <%= stylesheet_link_tag    'main', media: 'all' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'skel.min' %>
   <%= javascript_include_tag 'main' %>
-  <%= javascript_include_tag 'jquery.dropotron.min' %>
-  <%= javascript_include_tag 'jquery.min' %>
-  <%= javascript_include_tag 'jquery.scrollex.min' %>
-  <%= javascript_include_tag 'util' %>
-
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <%= csrf_meta_tags %>
   <noscript><%= stylesheet_link_tag    'noscript', media: 'all' %></noscript>
 </head>
@@ -32,7 +27,7 @@
               <li><%= link_to "Edit Account", edit_user_registration_path %></li>
             <% else %>
               <li><%= link_to "Sign Up", new_user_registration_path %></li>
-              <li><%= link_to "Sign In", new_user_session_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path, class: 'sign-in' %></li>
             </ul>
             <% end %>
           </li>

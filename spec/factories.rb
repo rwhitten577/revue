@@ -19,15 +19,14 @@ FactoryGirl.define do
 
   factory :review do
     association :venue
-    rating 10
+    rating 9
     description 'Great venue!'
-    upvotes 5
-    downvotes 3
+    sum_votes 0
   end
 
-  factory :comment do
+  factory :vote do
     association :user
     association :review
-    sequence (:body) { |n| "Amazing comment #{n}" }
+    value 1
   end
 end

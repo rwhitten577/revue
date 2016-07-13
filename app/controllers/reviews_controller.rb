@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
     @venue = Venue.find(params[:venue_id])
     @review.venue = @venue
     @review.user = current_user
+    @review.sum_votes = 0
+
     if @review.save
       ReviewMailer.new_review(@review).deliver_later
       flash[:notice] = 'Review successfully added!'

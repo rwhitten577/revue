@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712165635) do
+ActiveRecord::Schema.define(version: 20160712190620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,10 @@ ActiveRecord::Schema.define(version: 20160712165635) do
     t.integer  "venue_id",                null: false
     t.integer  "rating",                  null: false
     t.text     "description"
-    t.integer  "upvotes",     default: 0, null: false
-    t.integer  "downvotes",   default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "sum_votes",   default: 0, null: false
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
@@ -65,6 +64,12 @@ ActiveRecord::Schema.define(version: 20160712165635) do
   end
 
   add_index "venues", ["user_id"], name: "index_venues_on_user_id", using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "review_id", null: false
+    t.integer "user_id",   null: false
+    t.integer "value"
+  end
 
   add_foreign_key "reviews", "users"
   add_foreign_key "venues", "users"

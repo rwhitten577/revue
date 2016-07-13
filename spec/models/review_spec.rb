@@ -10,9 +10,6 @@ describe Review do
   it { should have_valid(:rating).when(9) }
   it { should_not have_valid(:rating).when(1000) }
 
-  it { should have_valid(:upvotes).when(8) }
-  it { should_not have_valid(:upvotes).when(nil, '') }
-
-  it { should have_valid(:downvotes).when(42) }
-  it { should_not have_valid(:downvotes).when(nil, '') }
+  it { should have_valid(:sum_votes).when(8) }
+  it { should_not have_valid(:sum_votes).when(nil, '') }
 end

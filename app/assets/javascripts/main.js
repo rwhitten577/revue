@@ -4,6 +4,9 @@
 	License: pixelarity.com/license
 */
 
+//= require skel.min
+//= require jquery.dropotron.min
+
 var settings = {
 
 	banner: {

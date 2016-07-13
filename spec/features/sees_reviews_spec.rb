@@ -9,5 +9,6 @@ feature 'user sees reviews' do
     visit venue_path(venue)
 
     expect(page).to have_content(review.description)
+    expect(find('.review:first-of-type').text).to include(review.description)
   end
 end
