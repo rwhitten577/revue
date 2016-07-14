@@ -28,6 +28,11 @@
       <%= f.label :description, 'Description' %>
       <%= f.text_area :description, size: "50x5" %>
     </div>
+    <div class="row photo">
+      <%= f.label :photo %><br />
+      <%= f.file_field :photo %>
+      <%= f.hidden_field :photo_cache %>
+    </div>
     <%= f.submit @submit, :class => 'button' %>
   <% end %>
 </div>
