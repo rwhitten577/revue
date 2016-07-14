@@ -28,8 +28,29 @@
   <div class="inner">
     <h2 class="venues-title">Venues</h2>
     <%= link_to 'Add New Venue', new_venue_path, class: "button add-venue", role: "button" %>
+    <div>
+      <%= form_tag venues_path, method: 'get', class: 'search' do %>
+        <%= text_field_tag :search, params[:search], placeholder: 'Search Venues', class: 'search-bar' %>
+        <%= submit_tag 'Search', name: nil, class: 'search-submit' %>
+      <% end %>
+    </div>
+    <div class="posts venues">
+      <ul>
+        <% @venues.each do |venue| %>
+          <section class="post venue">
+            <span class="image"><img src="http://www.tetongravity.com/images/ci-images/kickapps/PHOTO_6806949_75233_8288743_ap.jpg" alt="" /></span>
+            <div class="content">
+              <h3 class="venue-title"><strong><a href="<%= venue_path(venue) %>"><%= venue.name %></a></strong></h3>
+              <h3 class="venue-city"><%= venue.city %>, <%= venue.state %></h3>
+              <p><%= venue.description %></p>
+              <ul class="actions">
+                <li><a href="<%= venue_path(venue) %>" class="button">More</a></li>
+              </ul>
+            </div>
+          </section>
+        <% end %>
+      </ul>
     <div class="posts venues" id="venue-feed">
-      
     </div>
   </div>
 </section>

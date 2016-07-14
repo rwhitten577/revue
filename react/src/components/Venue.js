@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 const Venue = props => {
-  debugger;
   return(
     <section className="post venue">
       <span className="image"><img src="http://www.tetongravity.com/images/ci-images/kickapps/PHOTO_6806949_75233_8288743_ap.jpg" alt="" /></span>
