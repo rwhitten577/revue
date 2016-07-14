@@ -9,7 +9,7 @@ class VenueFeed extends Component {
     }
   }
 
-  componentDidMount() {
+  loadVenuesFromServer: function() {
     $.ajax({
       url: '/api/v1/venues',
       contentType: 'application/json'
@@ -17,7 +17,12 @@ class VenueFeed extends Component {
     .done(data => {
       this.setState({ venues: data.venues })
     });
-  }
+  },
+
+  componentDidMount() {
+    this.loadVenuesFromServer();
+    setInterval(this.loadVenuesFromServer, 5000)
+  },
 
   render() {
     let venues = this.state.venues.map(venue => {
