@@ -87,5 +87,20 @@ feature 'user creates venue' do
       expect(page).to have_content("Category can't be blank")
       expect(page).to have_content('There were problems saving your venue')
     end
+
+    scenario 'uploads venue photo' do
+      click_link 'Add New Venue'
+      fill_in 'Venue Name', with: venue[:name]
+      fill_in 'Street', with: venue[:street]
+      fill_in 'City', with: venue[:city]
+      select 'Massachusetts', from: 'State'
+      fill_in 'Venue Website', with: venue[:website]
+      choose 'venue_category_music'
+      fill_in 'venue_description', with: venue[:description]
+      attach_file 'Photo', 'spec/support/images/studio_engineer.jpeg'
+      click_button 'Add Venue'
+
+      expect(page).to have_css("img[src*='studio_engineer.jpeg']")
+    end
   end
 end

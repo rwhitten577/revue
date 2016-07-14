@@ -17,6 +17,7 @@ feature 'user sees venues' do
 
     expect(page).to have_content(venue.name)
     expect(page).to have_content(another_venue.name)
+    expect(page).to have_content(venue.photo)
     expect(find('.venue:first-of-type').text).to include(latest_venue.name)
   end
 

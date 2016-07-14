@@ -36,6 +36,7 @@ class VenueFeed extends Component {
           state={venue.state}
           description={venue.description}
           avgRating={venue.avg_rating}
+          photo={venue.photo}
         />
       );
     });

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const Venue = props => {
   return(
     <section className="post venue">
-      <span className="image"><img src="http://www.tetongravity.com/images/ci-images/kickapps/PHOTO_6806949_75233_8288743_ap.jpg" alt="" /></span>
+      <span className="image"><img src={props.photo} /></span>
       <div className="content">
         <h3 className="venue-title"><strong><a href={"/venues/" + props.venueId}>{props.name}</a></strong></h3>
         <h3 className="venue-city">{props.city}, {props.state}</h3>
