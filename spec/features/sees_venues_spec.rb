@@ -6,10 +6,9 @@ feature 'user sees venues' do
     another_venue = FactoryGirl.create(:venue, name: 'AAAA')
     latest_venue = FactoryGirl.create(:venue, name: 'DDDD')
 
-    page.visit("/venues")
+    visit venues_path
 
     expect(page).to have_content('VENUES')
-
     expect(page).to have_content(venue.name)
     expect(page).to have_selector('.venue', count: 3)
 

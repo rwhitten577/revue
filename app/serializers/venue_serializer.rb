@@ -1,4 +1,3 @@
 class VenueSerializer < ActiveModel::Serializer
-  attributes :id, :name, :street, :city, :state, :description, :avg_rating,
-    :created_at
+  attributes :id, :name, :street, :city, :state, :description, :avg_rating, :created_at
 end

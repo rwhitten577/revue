@@ -5,7 +5,6 @@ feature 'user upvotes' do
   let!(:venue) { FactoryGirl.create(:venue, user: user) }
   let!(:review) { FactoryGirl.create(:review, user: user, venue: venue) }
 
-
   context 'authenticated user' do
     before do
       visit new_user_session_path
