@@ -22,13 +22,13 @@
           <% if user_signed_in? && (review.user == current_user || current_user.admin) %>
             <%= link_to "Edit Review", edit_venue_review_path(@venue, review) %>
             <%= link_to "Delete Review", venue_review_path(@venue, review), method: :delete %>
-            <%= link_to "Add New Review", new_venue_review_path(@venue), class: "new-review" %>
             <% end %>
             <br />
             <%= link_to "", review_votes_path(review, value: 1), class: "upvote fa fa-thumbs-up", id: 'upvote', data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>&nbsp;&nbsp;
             <%= link_to "", review_votes_path(review, value: -1), class: "downvote fa fa-thumbs-down", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
             <p id='voting-number' class="total-votes-<%= review.id %>"><%= review.sum_votes %>&nbsp;&nbsp;</p>
       <% end %>
+      <%= link_to "Add New Review", new_venue_review_path(@venue), class: "new-review" %>
 <% end %>
 
 
