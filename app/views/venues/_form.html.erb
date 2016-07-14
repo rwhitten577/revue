@@ -1,31 +1,33 @@
-<%= form_for @venue do |f| %>
-  <div class="row">
-    <%= f.label :name, 'Venue Name' %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="row street">
-    <%= f.label :street, 'Street' %>
-    <%= f.text_field :street %>
-  </div>
-  <div class="row city">
-    <%= f.label :city, 'City' %>
-    <%= f.text_field :city %>
-  </div>
-  <div class="row state">
-    <%= f.label :state, 'State' %>
-    <%= f.select :state, options_for_select(StatesHelper::US_STATES, :selected => @venue.state),:name=>"state",:id=>"state" %>
-  </div>
-  <div class="row website">
-    <%= f.label :website, 'Venue Website' %>
-    <%= f.text_field :website %>
-  </div>
-  <div class="category">
-    <%= f.label :category, 'Venue Category' %>
-    <%= f.collection_radio_buttons(:category, @venue_categories, :first, :last) %>
-  </div>
-  <div class="row description">
-    <%= f.label :description, 'Description' %>
-    <%= f.text_area :description, size: "50x5" %>
-  </div>
-  <%= f.submit @submit, :class => 'button' %>
-<% end %>
+<div class='new-venue-form'>
+  <%= form_for @venue do |f| %>
+    <div class="row">
+      <%= f.label :name, 'Venue Name' %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="row street">
+      <%= f.label :street, 'Street' %>
+      <%= f.text_field :street %>
+    </div>
+    <div class="row city">
+      <%= f.label :city, 'City' %>
+      <%= f.text_field :city %>
+    </div>
+    <div class="row state">
+      <%= f.label :state, 'State' %>
+      <%= f.select :state, options_for_select(StatesHelper::US_STATES, :selected => @venue.state),:name=>"state",:id=>"state" %>
+    </div>
+    <div class="row website">
+      <%= f.label :website, 'Venue Website' %>
+      <%= f.text_field :website %>
+    </div>
+    <div class="category">
+      <%= f.label :category, 'Venue Category' %>
+      <%= f.collection_radio_buttons(:category, @venue_categories, :first, :last) %>
+    </div>
+    <div class="row description">
+      <%= f.label :description, 'Description' %>
+      <%= f.text_area :description, size: "50x5" %>
+    </div>
+    <%= f.submit @submit, :class => 'button' %>
+  <% end %>
+</div>
