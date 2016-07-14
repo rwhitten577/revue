@@ -15,6 +15,7 @@ FactoryGirl.define do
     category 'Music'
     description 'The greatest venue of all time'
     avg_rating '8'
+    photo './images/studio_engineer.jpeg'
   end
 
   factory :review do

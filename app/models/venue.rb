@@ -1,5 +1,4 @@
 class Venue < ActiveRecord::Base
-
   CATEGORIES = [
     ['Music', 'Music'],
     ['Comedy', 'Comedy'],
@@ -15,6 +14,8 @@ class Venue < ActiveRecord::Base
 
   has_many :reviews
   belongs_to :user
+
+  mount_uploader :photo, VenuePicUploader
 
   def self.search(query)
     where('name ILIKE ?', "%#{query}%")
