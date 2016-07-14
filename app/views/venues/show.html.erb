@@ -14,6 +14,7 @@
   <div class="6u">
     <h4>Reviews for <%= @venue.name %>:</h4>
       <% @reviews.each do |review| %>
+      <div class='review'>
           Rating: <%= review.rating %>
           <p class="review-description">
             Description: <%= review.description %>
@@ -27,6 +28,7 @@
             <%= link_to "", review_votes_path(review, value: 1), class: "upvote fa fa-thumbs-up", id: 'upvote', data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>&nbsp;&nbsp;
             <%= link_to "", review_votes_path(review, value: -1), class: "downvote fa fa-thumbs-down", data: { venueid: "#{@venue.id}", reviewid: "#{review.id}" } %>
             <p id='voting-number' class="total-votes-<%= review.id %>"><%= review.sum_votes %>&nbsp;&nbsp;</p>
+          </div>
       <% end %>
       <%= link_to "Add New Review", new_venue_review_path(@venue), class: "new-review" %>
 <% end %>
