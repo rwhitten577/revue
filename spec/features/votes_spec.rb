@@ -30,6 +30,7 @@ feature 'user upvotes' do
       visit venue_path(venue)
 
       page.all('.downvote')[0].click
+      save_and_open_page
       expect(page).to have_content('-1')
     end
 
