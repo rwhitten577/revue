@@ -9,7 +9,7 @@ feature 'user sees venues' do
     visit venues_path
 
     expect(page).to have_content('VENUES')
-    sleep 10
+
     expect(page).to have_content(venue.name)
     expect(page).to have_selector('.venue', count: 3)
 
