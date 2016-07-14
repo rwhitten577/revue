@@ -19,6 +19,7 @@ feature 'user deletes venue' do
 
     expect(current_path).to eq(venues_path)
     expect(page).not_to have_content(venue.name)
+    sleep 10
     expect(page).to have_content(another_venue.name)
 
     expect(Venue.all.count).to eq(1)
