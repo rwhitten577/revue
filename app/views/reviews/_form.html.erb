@@ -1,3 +1,4 @@
+<div class='new-venue-form'>
   <%= form_for [@venue, @review] do |f| %>
     <div class="row rating">
       <%= f.label :rating %>
@@ -14,7 +15,8 @@
             <li>*<%= msg %></li>
           <% end %>
           </ul>
-        </div>
+      </div>
     <% end %>
   <%= f.submit "Submit Review", class: "button" %>
-<% end %>
+  <% end %>
+</div>
