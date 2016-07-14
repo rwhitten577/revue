@@ -25,6 +25,7 @@ RSpec.configure do |config|
   FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 
   config.include Warden::Test::Helpers
+  include Devise::TestHelpers
   config.before :suite do
     Warden.test_mode!
   end
@@ -32,4 +33,5 @@ RSpec.configure do |config|
   config.after :each do
     Warden.test_reset!
   end
+
 end

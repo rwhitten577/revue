@@ -19,3 +19,6 @@
 //= require util
 //= require votes
 //= require main
+//= require react
+//= require components
+//= require react_ujs

@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :venues, only: [:index]
+    end
+  end
 end
