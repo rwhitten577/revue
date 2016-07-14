@@ -7,7 +7,7 @@ feature 'user deletes venue' do
   let!(:admin) { FactoryGirl.create(:user, admin: true) }
   let(:venue_2) { FactoryGirl.create(:venue, user: admin) }
 
-  scenario 'authenticated user deletes venue from show page if their venue' do
+  scenario 'authenticated user deletes venue from show page if their venue', js: true do
     visit venues_path
     click_link 'Sign In'
     fill_in 'Login', with: user[:email]
@@ -17,11 +17,11 @@ feature 'user deletes venue' do
     visit venue_path(venue)
     click_link('Delete Venue')
 
-    expect(Venue.all.count).to eq(1)
-
     expect(current_path).to eq(venues_path)
     expect(page).not_to have_content(venue.name)
     expect(page).to have_content(another_venue.name)
+
+    expect(Venue.all.count).to eq(1)
   end
 
   scenario 'inauthenticated user cannot delete venue' do

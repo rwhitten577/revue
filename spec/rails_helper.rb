@@ -6,7 +6,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'support/database_cleaner'
 require 'capybara/webkit'
-Capybara.javascript_driver = :webkit_debug
+Capybara.javascript_driver = :webkit
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
@@ -25,6 +25,7 @@ RSpec.configure do |config|
   FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
 
   config.include Warden::Test::Helpers
+
   config.before :suite do
     Warden.test_mode!
   end

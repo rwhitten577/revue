@@ -18,4 +18,6 @@
 //= require skel.min
 //= require util
 //= require votes
+//= require react
+//= require react_ujs
 //= require main

@@ -10,6 +10,7 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'react-rails'
 
 group :development, :test do
   gem 'capybara'
@@ -35,3 +36,4 @@ group :production do
 end
 
 gem 'puma'
+gem "active_model_serializers"
