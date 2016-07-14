@@ -4,6 +4,8 @@ class VotesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
+    @review = Review.find(params[:review_id])
+    @value = params[:value]
     @vote = Vote.where(user: current_user, review: @review).first
 
     if @vote.nil?
