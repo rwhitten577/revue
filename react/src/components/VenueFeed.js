@@ -24,6 +24,8 @@ class VenueFeed extends Component {
       return (
         <Venue
           key={venue.id}
+          venueId={venue.id}
+          name={venue.name}
           street={venue.street}
           city={venue.city}
           state={venue.state}
