@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     @review.sum_votes = 0
 
     if @review.save
+      ReviewMailer.new_review(@review).deliver_later
       flash[:notice] = 'Review successfully added!'
       redirect_to venue_path(@venue)
     end

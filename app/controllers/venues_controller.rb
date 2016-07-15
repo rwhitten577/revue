@@ -67,7 +67,11 @@ class VenuesController < ApplicationController
 
     def venue_params
       params.require(:venue).permit(
-        :name, :street, :city, :state, :website, :category, :description, :photo
+        :name,
+        :street,
+        :city,
+        :state,
+        :website, :category, :description, :photo
       )
     end
 end
