@@ -88,7 +88,12 @@ nav form {
   float: right;
 }
 
-.venues .post {
+#three {
+  position: relative;
+  min-height: 75vh;
+}
+
+.venues{
   margin: 0;
 }
 
@@ -126,6 +131,12 @@ nav form {
 
 .venue-description {
   text-align: justify;
+}
+
+.venue-photo {
+  max-width: 600px;
+  padding-left: 0;
+  padding-bottom: 20px;
 }
 
 .container {

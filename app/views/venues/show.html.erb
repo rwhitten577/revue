@@ -1,7 +1,13 @@
 <div class='container'>
 <div class='uniform row'>
-  <div class="6u venue-show-page">
-    <%= image_tag(@venue.photo, class: "venue-photo") %>
+  <div class="12u venue-show-page">
+    <div class="row">
+      <div class="6u -3u 12u(xsmall)">
+        <%= image_tag(@venue.photo, class: "venue-photo") %>
+      </div>
+    </div>
+    <div class="row">
+    <div class="6u -1u">
     <h3><%= @venue.name %></h3>
     <h5><%= @venue.category %></h5>
     <h6><%= @venue.street %> <%= @venue.city %>, <%= @venue.state %></h6>
@@ -10,9 +16,9 @@
       <%= link_to "Edit Venue", edit_venue_path(@venue) %>
       <%= link_to "Delete Venue", venue_path(@venue), method: :delete %>
     <% end %>
-  </div>
+    </div>
+    <div class="4u -1u">
     <% if @reviews %>
-    <div class="6u">
       <h4>Reviews for <%= @venue.name %>:</h4>
         <% @reviews.each do |review| %>
         <div class='review'>
@@ -34,5 +40,6 @@
         <%= link_to "Add New Review", new_venue_review_path(@venue), class: "new-review" %>
       <% end %>
     </div>
+  </div>
   </div>
 </div>

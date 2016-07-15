@@ -15,7 +15,7 @@ class VenueFeed extends Component {
       contentType: 'application/json'
     })
     .done(data => {
-      this.setState({ venues: data.venues })
+      this.setState({ venues: data.venues });
     });
   }
 
@@ -36,15 +36,15 @@ class VenueFeed extends Component {
           state={venue.state}
           description={venue.description}
           avgRating={venue.avg_rating}
-          photo={venue.photo}
+          photo={venue.photo.photo.url}
         />
       );
     });
 
     return (
-      <ul className="venue-feed">
+      <div className="posts venues" >
         {venues}
-      </ul>
+      </div>
     );
   }
 };

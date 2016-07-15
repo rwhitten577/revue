@@ -17,13 +17,7 @@
 		@include vendor('align-items', 'stretch');
 
 		.post {
-			width: calc(25% - 1.25em);
-		}
-
-		@include breakpoint(large) {
-			.post {
-				width: calc(50% - 1em);
-			}
+			width: calc(33.333% - 1.25em);
 		}
 
 		@include breakpoint(small) {

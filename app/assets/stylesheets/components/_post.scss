@@ -32,12 +32,6 @@
 			@include vendor('flex-grow', '1');
 		}
 
-		@include breakpoint(large) {
-			.content {
-				@include padding(2em, 2em);
-			}
-		}
-
 		@include breakpoint(small) {
 			display: block;
 
