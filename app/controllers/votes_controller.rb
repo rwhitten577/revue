@@ -24,9 +24,6 @@ class VotesController < ApplicationController
       respond_to do |format|
         format.json { render json: { votes_count: @review.sum_votes, review_id: @review.id } }
       end
-    else
-      flash[:error] = 'Something went wrong with your request.'
-      redirect_to :back
     end
   end
 
