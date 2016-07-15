@@ -31,7 +31,6 @@ feature 'user creates review' do
       expect(page).to have_content('Review successfully added!')
       expect(current_path).to eq("/venues/#{Venue.first.id}")
       expect(page).to have_content(:review)
-       expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
   end
 
