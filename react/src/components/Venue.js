@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 const Venue = props => {
+  debugger;
   return(
     <section className="post venue">
       <span className="image"><img src={props.photo} /></span>

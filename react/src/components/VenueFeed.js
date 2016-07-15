@@ -9,20 +9,20 @@ class VenueFeed extends Component {
     }
   }
 
-  loadVenuesFromServer: function() {
+  loadVenuesFromServer() {
     $.ajax({
       url: '/api/v1/venues',
       contentType: 'application/json'
     })
     .done(data => {
-      this.setState({ venues: data.venues })
+      this.setState({ venues: data.venues });
     });
-  },
+  }
 
   componentDidMount() {
     this.loadVenuesFromServer();
     setInterval(this.loadVenuesFromServer, 5000)
-  },
+  }
 
   render() {
     let venues = this.state.venues.map(venue => {
@@ -36,15 +36,15 @@ class VenueFeed extends Component {
           state={venue.state}
           description={venue.description}
           avgRating={venue.avg_rating}
-          photo={venue.photo}
+          photo={venue.photo.photo.url}
         />
       );
     });
 
     return (
-      <ul className="venue-feed">
+      <div className="posts venues" >
         {venues}
-      </ul>
+      </div>
     );
   }
 };

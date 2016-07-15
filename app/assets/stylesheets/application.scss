@@ -71,10 +71,6 @@ nav form {
   margin-bottom: 0;
 }
 
-.post {
-  width: 300px;
-}
-
 .post .image {
   margin-bottom: 0px;
 }
@@ -90,6 +86,15 @@ nav form {
 .search-submit {
   margin-top: 6px;
   float: right;
+}
+
+#three {
+  position: relative;
+  min-height: 75vh;
+}
+
+.venues{
+  margin: 0;
 }
 
 .venue-city, .wrapper.style2 h3{
@@ -126,6 +131,12 @@ nav form {
 
 .venue-description {
   text-align: justify;
+}
+
+.venue-photo {
+  max-width: 600px;
+  padding-left: 0;
+  padding-bottom: 20px;
 }
 
 .container {
