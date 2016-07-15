@@ -25,12 +25,12 @@ feature 'user upvotes' do
 
       expect(page).to have_content('1')
     end
-    
+
     scenario 'downvotes', js: true do
       visit venue_path(venue)
 
       page.all('.downvote')[0].click
-
+      
       expect(page).to have_content('-1')
     end
 
