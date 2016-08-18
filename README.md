@@ -50,3 +50,8 @@ The `AWS_ACCESS_KEY`, `AWS_SECRET_KEY`, and `S3_BUCKET` are used when uploading 
 ## ERD
 
 ![Revue ERD](http://oi66.tinypic.com/f44kra.jpg)
+
+##Known Bugs
+
+* Cover image under the text does not show
+* Mailers are not sending e-mails

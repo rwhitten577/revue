@@ -1,9 +1,3 @@
-User.create(
-  username: 'datboi',
-  email: 'whatup@gmail.com',
-  password: 'password',
-  admin: true)
-
 Venue.create(
   name: 'House of Blues',
   street: '15 Lansdowne St.',
